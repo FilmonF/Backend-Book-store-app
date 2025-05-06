@@ -10,9 +10,10 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors({ 
-  origin: 'https://front-end-book-store-app.vercel.app',
-  credentials: true
+app.use(cors({
+  origin: 'https://front-end-book-store-app.vercel.app', // Allow only your frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true // Include cookies if needed
 }));
 
 app.get('/', (req, res) => res.status(200).send('Welcome to MERN Stack Tutorial!'));
